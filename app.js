@@ -1,12 +1,13 @@
-const selectMicrophone = document.querySelector('#selectMicrophone');
+ const selectMicrophone = document.querySelector('#selectMicrophone');
 const microphoneSelected = document.querySelector('#microphoneSelected');
+
 
 navigator.mediaDevices.getUserMedia({
     audio: true,
     video: false
   })
 .then((stream) => {
-console.log(stream)
+console.log(stream.getAudioTracks())
 })
 .catch((err) => {
 console.log(err.name + ": " + err.message);
@@ -43,6 +44,7 @@ navigator.mediaDevices.enumerateDevices()
     console.log(err.name + ": " + err.message);
   });
   }
+
 
 
 
